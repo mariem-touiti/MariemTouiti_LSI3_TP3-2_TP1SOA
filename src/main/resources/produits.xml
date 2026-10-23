@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<magasin>
+    <produit>
+        <id>1</id>
+        <nom>Creme hydratante</nom>
+        <prix>25.5</prix>
+        <promotion>true</promotion>
+    </produit>
+
+    <produit>
+        <id>2</id>
+        <nom>Shampooing</nom>
+        <prix>18.0</prix>
+        <promotion>false</promotion>
+    </produit>
+
+    <produit>
+        <id>3</id>
+        <nom>Parfum</nom>
+        <prix>80.0</prix>
+        <promotion>true</promotion>
+    </produit>
+</magasin>
