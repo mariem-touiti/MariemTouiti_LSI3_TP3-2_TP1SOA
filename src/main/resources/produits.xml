@@ -1,23 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <magasin>
-    <produit>
-        <id>1</id>
-        <nom>Creme hydratante</nom>
-        <prix>25.5</prix>
-        <promotion>true</promotion>
-    </produit>
 
-    <produit>
-        <id>2</id>
-        <nom>Shampooing</nom>
-        <prix>18.0</prix>
-        <promotion>false</promotion>
-    </produit>
+    <informations>
+        <nom>Beauty Store</nom>
+        <ville>Sfax</ville>
+        <adresse>Centre Ville</adresse>
+        <telephone>74123456</telephone>
+    </informations>
 
-    <produit>
-        <id>3</id>
-        <nom>Parfum</nom>
-        <prix>80.0</prix>
-        <promotion>true</promotion>
-    </produit>
+    <categories>
+
+        <categorie id="C1">
+            <nom>Soins du visage</nom>
+            <description>Produits pour le soin du visage</description>
+        </categorie>
+
+        <categorie id="C2">
+            <nom>Soins capillaires</nom>
+            <description>Produits pour les cheveux</description>
+        </categorie>
+
+        <categorie id="C3">
+            <nom>Parfumerie</nom>
+            <description>Parfums et eaux de toilette</description>
+        </categorie>
+
+    </categories>
+
+    <produits>
+
+        <produit id="P1" categorieRef="C1">
+            <nom>Creme hydratante</nom>
+            <marque>Nivea</marque>
+            <prix>25.500</prix>
+            <stock>40</stock>
+            <promotion>true</promotion>
+        </produit>
+
+        <produit id="P2" categorieRef="C2">
+            <nom>Shampooing</nom>
+            <marque>Pantene</marque>
+            <prix>18.000</prix>
+            <stock>25</stock>
+            <promotion>false</promotion>
+        </produit>
+
+        <produit id="P3" categorieRef="C3">
+            <nom>Parfum</nom>
+            <marque>Chanel</marque>
+            <prix>80.000</prix>
+            <stock>15</stock>
+            <promotion>true</promotion>
+        </produit>
+
+        <produit id="P4" categorieRef="C1">
+            <nom>Creme solaire</nom>
+            <marque>La Roche Posay</marque>
+            <prix>45.000</prix>
+            <stock>30</stock>
+            <promotion>false</promotion>
+        </produit>
+
+        <produit id="P5" categorieRef="C2">
+            <nom>Masque capillaire</nom>
+            <marque>Garnier</marque>
+            <prix>32.000</prix>
+            <stock>20</stock>
+            <promotion>true</promotion>
+        </produit>
+
+    </produits>
+
 </magasin>

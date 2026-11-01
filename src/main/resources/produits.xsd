@@ -1,23 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
+    <!-- Type pour le prix -->
+    <xs:simpleType name="PrixType">
+        <xs:restriction base="xs:decimal">
+            <xs:minExclusive value="0"/>
+            <xs:maxInclusive value="10000"/>
+            <xs:fractionDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Type pour le stock -->
+    <xs:simpleType name="StockType">
+        <xs:restriction base="xs:nonNegativeInteger">
+            <xs:maxInclusive value="100000"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Type pour le telephone -->
+    <xs:simpleType name="TelephoneType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{8}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Type pour les noms -->
+    <xs:simpleType name="NomType">
+        <xs:restriction base="xs:token">
+            <xs:minLength value="2"/>
+            <xs:maxLength value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Element racine -->
     <xs:element name="magasin">
+
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="produit"
-                            minOccurs="1"
-                            maxOccurs="unbounded">
+
+                <!-- Informations du magasin -->
+                <xs:element name="informations">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="id" type="xs:int"/>
-                            <xs:element name="nom" type="xs:string"/>
-                            <xs:element name="prix" type="xs:decimal"/>
-                            <xs:element name="promotion" type="xs:boolean"/>
+                            <xs:element name="nom" type="NomType"/>
+                            <xs:element name="ville" type="NomType"/>
+                            <xs:element name="adresse" type="NomType"/>
+                            <xs:element name="telephone"
+                                        type="TelephoneType"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
+
+                <!-- Categories -->
+                <xs:element name="categories">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="categorie"
+                                        minOccurs="1"
+                                        maxOccurs="unbounded">
+
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nom"
+                                                    type="NomType"/>
+                                        <xs:element name="description"
+                                                    type="NomType"/>
+                                    </xs:sequence>
+
+                                    <xs:attribute name="id"
+                                                  type="xs:ID"
+                                                  use="required"/>
+                                </xs:complexType>
+
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- Produits -->
+                <xs:element name="produits">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="produit"
+                                        minOccurs="1"
+                                        maxOccurs="unbounded">
+
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nom"
+                                                    type="NomType"/>
+                                        <xs:element name="marque"
+                                                    type="NomType"/>
+                                        <xs:element name="prix"
+                                                    type="PrixType"/>
+                                        <xs:element name="stock"
+                                                    type="StockType"/>
+                                        <xs:element name="promotion"
+                                                    type="xs:boolean"/>
+                                    </xs:sequence>
+
+                                    <xs:attribute name="id"
+                                                  type="xs:ID"
+                                                  use="required"/>
+
+                                    <xs:attribute name="categorieRef"
+                                                  type="xs:IDREF"
+                                                  use="required"/>
+                                </xs:complexType>
+
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
             </xs:sequence>
         </xs:complexType>
+
+        <!-- Verification des references des categories -->
     </xs:element>
 
 </xs:schema>

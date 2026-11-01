@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<magasin>
+
+    <informations>
+        <nom>Beauty Store</nom>
+        <ville>Sfax</ville>
+        <adresse>Centre Ville</adresse>
+        <telephone>74123456</telephone>
+    </informations>
+
+    <categories>
+
+        <categorie id="C1">
+            <nom>Soins du visage</nom>
+            <description>Produits pour le visage</description>
+        </categorie>
+
+    </categories>
+
+    <produits>
+
+        <produit id="P1" categorieRef="C1">
+            <nom>Creme hydratante</nom>
+            <marque>Nivea</marque>
+            <prix>-25.500</prix>
+            <stock>40</stock>
+            <promotion>true</promotion>
+        </produit>
+
+    </produits>
+
+</magasin>
